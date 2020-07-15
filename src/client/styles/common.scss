@@ -1,0 +1,30 @@
+$primary-color : #E5E5E5;
+$secondary-color : #4285F4;
+$white-color : #FFF;
+$dnds-color : linear-gradient(120.28deg, #DFE1E2 -53.53%, #FDFFFF 138.3%);
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: $primary-color;
+    overflow: hidden;
+}
+
+@for $i from 1 through 100 {
+    .w-#{$i} {
+      width : #{100% / $i};
+    }
+  }
+
+p{
+    margin: 0;
+}
+
+@import './Header/header.scss';

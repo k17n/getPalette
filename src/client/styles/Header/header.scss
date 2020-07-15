@@ -1,0 +1,14 @@
+.btn-link{
+    color: $secondary-color;
+    padding: 5px;
+    &:hover, &:active, &:focus{
+        color: $secondary-color;
+        text-decoration:none;
+        box-shadow: none;
+        outline: none;
+    }
+}
+
+.fa{
+    color: $secondary-color;
+}

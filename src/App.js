@@ -1,16 +1,16 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react';
+import Header from './client/components/Header/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Hello!
-        </p>
-      </header>
-    </div>
-  );
+class App extends Component{
+  render(){
+    return (
+      <div className="container-fluid p-0">
+        <div className="App m-5">
+          <Header />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
