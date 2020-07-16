@@ -14,7 +14,7 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     background: $primary-color;
-    overflow: hidden;
+    height: 100vh;
 }
 
 @for $i from 1 through 100 {
@@ -28,3 +28,6 @@ p{
 }
 
 @import './Header/header.scss';
+@import './ImageSection/ImageSection.scss';
+@import './ImageSection/dropzone.scss';
+@import './ImageSection/Button.scss';
