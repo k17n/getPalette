@@ -5,8 +5,7 @@ import GetPaletteButton from '../GetPaletteButton/GetPaletteButton';
 function Previews(props) {
   const [files, setFiles] = useState([]);
   const {getRootProps, getInputProps} = useDropzone({
-    noClick: true,
-    accept: 'image/*',
+    accept: 'image/jpeg, image/png, image/jpg', 
     onDrop: acceptedFiles => {
       setFiles(acceptedFiles.map(file => Object.assign(file, {
         preview: URL.createObjectURL(file)
@@ -39,7 +38,7 @@ function Previews(props) {
         <input {...getInputProps()} />
         <p className="dns">Drag 'n' drop an Image here </p>
         <span className="or">OR</span>
-        <p className="url">Paste the Image URL here</p>
+        <input className="url" type = "text" placeholder="Paste the Image URL here" />
       </div>
       <aside>
         {thumbs}
@@ -49,4 +48,4 @@ function Previews(props) {
   );
 }
 
-export default Previews
+export default Previews;
