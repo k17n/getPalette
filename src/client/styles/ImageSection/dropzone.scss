@@ -7,20 +7,11 @@
 .thumb{
     display: inline-flex;
     border-radius: 2px;
-    width: 100px;
-    height: 100px;
     padding: 4px;
     box-sizing: border-box
 }
 
 .thumbInner{
     display: flex;
-    min-width: 0px;
     overflow: hidden;
 }
-  
-.img{
-    display: block;
-    width: auto;
-    height: 100%;
-};
