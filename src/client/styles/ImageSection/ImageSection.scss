@@ -15,24 +15,42 @@
         line-height: 40px;
         cursor: pointer
     }
-    .or{
-        font-size: 12px;
-        &::before,
-        &::after {
-            display: inline-block;
-            content: "";
-            border-top: 1px dashed  $secondary-color;
-            width: 12rem;
-            margin: 0 0.5rem;
-            transform: translateY(-3px);
-        }
+}
+
+.or{
+    font-size: 12px;
+    &::before,
+    &::after {
+        display: inline-block;
+        content: "";
+        border-top: 1px dashed  $secondary-color;
+        width: 12rem;
+        margin: 0 0.5rem;
+        transform: translateY(-3px);
     }
-    .url{
-        background: rgba(66, 133, 244, 0.05);
-        padding:3px 15px;
-        border-radius: 3px;
+    @media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 768px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        &::before, &::after {
+            width: 5rem;
+        }
+    } 
+}
+
+.url{
+    background: rgba(66, 133, 244, 0.05);
+    padding:3px 15px;
+    border-radius: 3px;
+    border: 1px solid $secondary-color;
+    text-overflow: ellipsis;
+    width: 220px;
+    &::placeholder {
+        color: $secondary-color;
+        opacity: 1;
     }
     &:focus{
-        outline: inherit
+        outline: inherit;
+        border: inherit;
     }
 }
