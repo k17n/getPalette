@@ -12,6 +12,61 @@
 }
 
 .thumbInner{
-    display: flex;
-    overflow: hidden;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  .image{
+    &:hover{
+      -webkit-filter: brightness(50%);
+      filter: brightness(50%);
+    }
+  }
+  &:hover{
+    button{
+      display: block
+    }
+  }
+  button{
+    position: absolute; 
+    display:none;
+    top: 0;
+    transform: translateY(750%);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    box-sizing: border-box;
+    &.update{
+      left: 30%;
+      background: rgba(66, 133, 244, 0.2);
+      border: 1px solid #4285F4;
+      padding: 5px 16px;
+      color: #4285F4;
+      border-radius: 98px;
+      &:hover{
+        outline:none;
+        box-shadow: none;
+        &.image{
+          -webkit-filter: brightness(50%);
+          filter: brightness(50%);
+        }
+      }
+    }
+    &.remove{
+      right: 30%;
+      background: rgba(234, 67, 53, 0.2);
+      border: 1px solid #EA4335;
+      padding: 5px 16px;
+      color: #EA4335;
+      border-radius: 98px;
+      &:hover{
+        outline:none;
+        box-shadow: none;
+        &.image{
+          -webkit-filter: brightness(50%);
+          filter: brightness(50%);
+        }
+      }
+    }
+  }
 }

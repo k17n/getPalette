@@ -1,12 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {useDropzone} from 'react-dropzone';
-// import CardInput from './CardInput';
 import GetPaletteButton from '../GetPaletteButton/GetPaletteButton';
+import ColorThief from "colorthief";
+// import { usePalette } from 'color-thief-react';
+// import CardInput from './CardInput';
 
 function Previews(props) {
   const [files, setFiles] = useState([]);
+  const handleimage = React.createRef;
+  const [showImage,setShowImage] = useState(true)
   // const [ input, imageURL, setInput, setImage] = useState('');
-  const {getRootProps, getInputProps,
+  const {getRootProps, 
+    getInputProps,
     isDragActive,
     isDragAccept,
     isDragReject} = useDropzone({
@@ -17,27 +22,48 @@ function Previews(props) {
       })));
     }
   });
+
+  const inputFile = useRef(null);
   
   const thumbs = files.map(file => (
     <div className="thumb" key={file.name}>
       <div className="thumbInner">
         <img
+          crossOrigin={"anonymous"}
           src={file.preview}
-          className="img-fluid"
+          ref={handleimage}
+          className="img-fluid image"
           alt="uploadedImage"
         />
+        <input type='file' id='file' ref={inputFile} accept="image/jpeg, image/png, image/jpg" style={{display: 'none'}}/>
+        <button 
+          className="update" 
+          onClick={()=> inputFile.current.click()}
+        >
+        Change Image
+        </button>
+        <button
+          className="remove" 
+          onClick={()=> setShowImage({showImage: false})}
+        >
+        Remove Image
+        </button>
       </div>
     </div>
   ));
 
+  const colorThief = new ColorThief();
+  // const img = document.querySelector('img');
+  // colorThief.getPalette(img, 5)
+  //   .then(palette => { console.log(palette) })
+  //   .catch(err => { console.log(err) })
+
   useEffect(() => () => {
-    // Make sure to revoke the data uris to avoid memory leaks
     files.forEach(file => URL.revokeObjectURL(file.preview));
   }, [files]);
   
   return (
     <div className="d-flex justify-content-center align-items-center mt-5">
-     
       {!files.length ? (
        <div className="image-section">
       <section className="container p-0 h-100">
